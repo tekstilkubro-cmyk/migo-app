@@ -10,9 +10,9 @@ export const Spacing = {
 } as const;
 
 export const Radius = {
-  sm: 8,
-  md: 12,
-  lg: 16,
+  sm: 4,
+  md: 8,
+  lg: 12,
   button: 24,
   pill: 999,
 } as const;

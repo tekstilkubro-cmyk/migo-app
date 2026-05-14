@@ -1,17 +1,39 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { Colors } from '@/constants/colors';
-import { Spacing } from '@/constants/spacing';
+import HomeHeader from '@/components/home/HomeHeader';
+import BannerCarousel from '@/components/home/BannerCarousel';
+import CategoryRow from '@/components/home/CategoryRow';
+import FlashDeals from '@/components/home/FlashDeals';
+import BestSellers from '@/components/home/BestSellers';
 
 export default function HomeScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.title}>Home</Text>
-    </ScrollView>
+    <View style={styles.root}>
+      <StatusBar style="light" />
+      <HomeHeader />
+      <ScrollView
+        style={styles.scroll}
+        showsVerticalScrollIndicator={false}
+        overScrollMode="never"
+      >
+        <BannerCarousel />
+        <CategoryRow />
+        <FlashDeals />
+        <BestSellers />
+        <View style={{ height: 20 }} />
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.background },
-  content: { padding: Spacing.base },
-  title: { fontSize: 22, fontWeight: '700', color: Colors.textPrimary },
+  root: {
+    flex: 1,
+    backgroundColor: Colors.primary,
+  },
+  scroll: {
+    flex: 1,
+    backgroundColor: '#F2F2F2',
+  },
 });
